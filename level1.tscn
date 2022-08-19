@@ -1,0 +1,384 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://ward_one.glb" type="PackedScene" id=1]
+[ext_resource path="res://spook1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ghost_anim.gd" type="Script" id=3]
+[ext_resource path="res://spook1.gd" type="Script" id=4]
+[ext_resource path="res://doormaker.glb" type="PackedScene" id=5]
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cube:material/0:emission")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.694118, 0.113725, 0.796078, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cube:material/0:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.760784, 0.454902, 0.796078, 0.168627 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Cube:material/1:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cube:material/1:emission")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Cube:material/1:emission_enabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cube:material/0:emission")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.694118, 0.113725, 0.796078, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cube:material/0:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.760784, 0.454902, 0.796078, 0.168627 ), Color( 0.760784, 0.454902, 0.796078, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Cube:material/1:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cube:material/1:emission_enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "fadebk"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cube:material/0:emission")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.694118, 0.113725, 0.796078, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cube:material/0:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( -0.1, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.760784, 0.454902, 0.796078, 0 ), Color( 0.760784, 0.454902, 0.796078, 0.168627 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Cube:material/1:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cube:material/1:emission_enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "wave"
+length = 1.04167
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cube/Mball001:blend_shapes/Wave")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.0416667, 0.0833333, 0.125, 0.166667, 0.208333, 0.25, 0.291667, 0.333333, 0.375, 0.416667, 0.458333, 0.5, 0.541667, 0.583333, 0.625, 0.666667, 0.708333, 0.75, 0.791667, 0.833333, 0.875, 0.916667, 0.958333, 1, 1.04167 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.013385, 0.0503905, 0.106293, 0.176367, 0.255889, 0.340136, 0.424383, 0.503905, 0.57398, 0.629882, 0.666887, 0.680272, 0.666887, 0.629882, 0.57398, 0.503905, 0.424383, 0.340136, 0.255889, 0.176367, 0.106292, 0.0503905, 0.0133851, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cube:blend_shapes/Wave")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.0416667, 0.0833333, 0.125, 0.166667, 0.208333, 0.25, 0.291667, 0.333333, 0.375, 0.416667, 0.458333, 0.5, 0.541667, 0.583333, 0.625, 0.666667, 0.708333, 0.75, 0.791667, 0.833333, 0.875, 0.916667, 0.958333, 1, 1.04167 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0393519, 0.148148, 0.3125, 0.518519, 0.752315, 1.0, 1.24769, 1.48148, 1.6875, 1.85185, 1.96065, 2.0, 1.96065, 1.85185, 1.6875, 1.48148, 1.24769, 1.0, 0.752315, 0.518518, 0.3125, 0.148148, 0.0393517, 0.0 ]
+}
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+background_color = Color( 0.109804, 0.109804, 0.109804, 1 )
+ambient_light_color = Color( 0.611765, 0.603922, 0.658824, 1 )
+fog_enabled = true
+fog_color = Color( 0.321569, 0.364706, 0.407843, 1 )
+fog_sun_color = Color( 0.603922, 0.494118, 0.266667, 1 )
+fog_depth_begin = 89.2
+fog_depth_end = 138.1
+fog_transmit_enabled = true
+fog_height_enabled = true
+ssao_radius = 59.79
+ssao_intensity = 5.06
+ssao_blur = 1
+dof_blur_near_distance = 75.5
+glow_intensity = 2.25
+glow_strength = 0.98
+glow_bloom = 0.76
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.886275, 0.937255, 0.537255, 1 )
+metallic = 0.18
+roughness = 0.0
+
+[sub_resource type="Animation" id=10]
+resource_name = "door1"
+length = 2.5
+tracks/0/type = "transform"
+tracks/0/path = NodePath("uploads_files_715338_basic_door007")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, -0.261122, 28.8471, 6.796, 0.707107, 0, 0, 0.707107, 1, 1.22564, 1, 0.0666667, 1, -0.261122, 28.8471, 6.796, 0.707101, -0.00287652, 0.00287652, 0.707101, 1, 1.22564, 1, 0.133333, 1, -0.261122, 28.8471, 6.796, 0.70674, -0.0227817, 0.0227817, 0.70674, 1, 1.22564, 1, 0.2, 1, -0.261122, 28.8471, 6.796, 0.704331, -0.0625915, 0.0625915, 0.704331, 1, 1.22564, 1, 0.333333, 1, -0.261122, 28.8471, 6.796, 0.683389, -0.181604, 0.181604, 0.683389, 1, 1.22564, 1, 0.4, 1, -0.261122, 28.8471, 6.796, 0.661018, -0.251107, 0.251107, 0.661018, 1, 1.22564, 1, 0.466667, 1, -0.261122, 28.8471, 6.796, 0.630657, -0.319799, 0.319799, 0.630657, 1, 1.22564, 1, 0.533333, 1, -0.261122, 28.8471, 6.796, 0.594147, -0.383391, 0.383391, 0.594147, 1, 1.22564, 1, 0.666667, 1, -0.261122, 28.8471, 6.796, 0.517918, -0.481415, 0.481416, 0.517918, 1, 1.22564, 1, 0.733333, 1, -0.261122, 28.8471, 6.796, 0.488971, -0.510791, 0.510791, 0.488971, 1, 1.22564, 1, 0.8, 1, -0.261122, 28.8471, 6.796, 0.47191, -0.526594, 0.526594, 0.47191, 1, 1.22564, 1, 0.866667, 1, -0.261122, 28.8471, 6.796, 0.469047, -0.529146, 0.529146, 0.469046, 1, 1.22564, 1, 1.66667, 1, -0.261122, 28.8471, 6.796, 0.469047, -0.529146, 0.529146, 0.469046, 1, 1.22564, 1, 1.73333, 1, -0.261122, 28.8471, 6.796, 0.477795, -0.52126, 0.52126, 0.477795, 1, 1.22564, 1, 1.8, 1, -0.261122, 28.8471, 6.796, 0.499272, -0.500727, 0.500727, 0.499272, 1, 1.22564, 1, 1.86667, 1, -0.261122, 28.8471, 6.796, 0.530554, -0.467453, 0.467453, 0.530554, 1, 1.22564, 1, 2, 1, -0.261122, 28.8471, 6.796, 0.603599, -0.368333, 0.368333, 0.603598, 1, 1.22564, 1, 2.06667, 1, -0.261122, 28.8471, 6.796, 0.637311, -0.306324, 0.306324, 0.637311, 1, 1.22564, 1, 2.13333, 1, -0.261122, 28.8471, 6.796, 0.664919, -0.240589, 0.240589, 0.664919, 1, 1.22564, 1, 2.26667, 1, -0.261122, 28.8471, 6.796, 0.6978, -0.114349, 0.114349, 0.6978, 1, 1.22564, 1, 2.33333, 1, -0.261122, 28.8471, 6.796, 0.704375, -0.0620997, 0.0620997, 0.704375, 1, 1.22564, 1, 2.4, 1, -0.261122, 28.8471, 6.796, 0.70668, -0.0245681, 0.0245681, 0.70668, 1, 1.22564, 1, 2.46667, 1, -0.261122, 28.8471, 6.796, 0.707098, -0.00346768, 0.00346768, 0.707098, 1, 1.22564, 1, 2.5, 1, -0.261122, 28.8471, 6.796, 0.707107, 0, 0, 0.707107, 1, 1.22564, 1 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.929412, 0.827451, 0.270588, 1 )
+metallic = 0.18
+roughness = 0.0
+
+[sub_resource type="Animation" id=11]
+resource_name = "close"
+tracks/0/type = "transform"
+tracks/0/path = NodePath("uploads_files_715338_basic_door007")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, -0.261122, 28.8471, 6.796, 0.469047, -0.529146, 0.529146, 0.469046, 1, 1.22564, 1, 0.1, 1, -0.261122, 28.8471, 6.796, 0.477795, -0.52126, 0.52126, 0.477795, 1, 1.22564, 1, 0.2, 1, -0.261122, 28.8471, 6.796, 0.499272, -0.500727, 0.500727, 0.499272, 1, 1.22564, 1, 0.4, 1, -0.261122, 28.8471, 6.796, 0.603599, -0.368333, 0.368333, 0.603598, 1, 1.22564, 1, 0.5, 1, -0.261122, 28.8471, 6.796, 0.664919, -0.240589, 0.240589, 0.664919, 1, 1.22564, 1, 0.6, 1, -0.261122, 28.8471, 6.796, 0.6978, -0.114349, 0.114349, 0.6978, 1, 1.22564, 1, 0.7, 1, -0.261122, 28.8471, 6.796, 0.704375, -0.0620997, 0.0620997, 0.704375, 1, 1.22564, 1, 0.8, 1, -0.261122, 28.8471, 6.796, 0.70668, -0.0245681, 0.0245681, 0.70668, 1, 1.22564, 1, 0.9, 1, -0.261122, 28.8471, 6.796, 0.707107, 0, 0, 0.707107, 1, 1.22564, 1 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "open"
+tracks/0/type = "transform"
+tracks/0/path = NodePath("uploads_files_715338_basic_door007")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, -0.261122, 28.8471, 6.796, 0.707107, 0, 0, 0.707107, 1, 1.22564, 1, 0.0666667, 1, -0.261122, 28.8471, 6.796, 0.707101, -0.00287652, 0.00287652, 0.707101, 1, 1.22564, 1, 0.133333, 1, -0.261122, 28.8471, 6.796, 0.70674, -0.0227817, 0.0227817, 0.70674, 1, 1.22564, 1, 0.2, 1, -0.261122, 28.8471, 6.796, 0.704331, -0.0625915, 0.0625915, 0.704331, 1, 1.22564, 1, 0.333333, 1, -0.261122, 28.8471, 6.796, 0.683389, -0.181604, 0.181604, 0.683389, 1, 1.22564, 1, 0.4, 1, -0.261122, 28.8471, 6.796, 0.661018, -0.251107, 0.251107, 0.661018, 1, 1.22564, 1, 0.466667, 1, -0.261122, 28.8471, 6.796, 0.630657, -0.319799, 0.319799, 0.630657, 1, 1.22564, 1, 0.533333, 1, -0.261122, 28.8471, 6.796, 0.594147, -0.383391, 0.383391, 0.594147, 1, 1.22564, 1, 0.666667, 1, -0.261122, 28.8471, 6.796, 0.517918, -0.481415, 0.481416, 0.517918, 1, 1.22564, 1, 0.733333, 1, -0.261122, 28.8471, 6.796, 0.488971, -0.510791, 0.510791, 0.488971, 1, 1.22564, 1, 0.8, 1, -0.261122, 28.8471, 6.796, 0.47191, -0.526594, 0.526594, 0.47191, 1, 1.22564, 1, 0.866667, 1, -0.261122, 28.8471, 6.796, 0.469047, -0.529146, 0.529146, 0.469046, 1, 1.22564, 1 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.882353, 0.65098, 1, 1 )
+metallic = 0.18
+roughness = 0.0
+
+[sub_resource type="Animation" id=8]
+resource_name = "door3"
+length = 2.5
+tracks/0/type = "transform"
+tracks/0/path = NodePath("uploads_files_715338_basic_door007")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, -0.261122, 28.8471, 6.796, 0.707107, 0, 0, 0.707107, 1, 1.22564, 1, 0.0666667, 1, -0.261122, 28.8471, 6.796, 0.707101, -0.00287652, 0.00287652, 0.707101, 1, 1.22564, 1, 0.133333, 1, -0.261122, 28.8471, 6.796, 0.70674, -0.0227817, 0.0227817, 0.70674, 1, 1.22564, 1, 0.2, 1, -0.261122, 28.8471, 6.796, 0.704331, -0.0625915, 0.0625915, 0.704331, 1, 1.22564, 1, 0.333333, 1, -0.261122, 28.8471, 6.796, 0.683389, -0.181604, 0.181604, 0.683389, 1, 1.22564, 1, 0.4, 1, -0.261122, 28.8471, 6.796, 0.661018, -0.251107, 0.251107, 0.661018, 1, 1.22564, 1, 0.466667, 1, -0.261122, 28.8471, 6.796, 0.630657, -0.319799, 0.319799, 0.630657, 1, 1.22564, 1, 0.533333, 1, -0.261122, 28.8471, 6.796, 0.594147, -0.383391, 0.383391, 0.594147, 1, 1.22564, 1, 0.666667, 1, -0.261122, 28.8471, 6.796, 0.517918, -0.481415, 0.481416, 0.517918, 1, 1.22564, 1, 0.733333, 1, -0.261122, 28.8471, 6.796, 0.488971, -0.510791, 0.510791, 0.488971, 1, 1.22564, 1, 0.8, 1, -0.261122, 28.8471, 6.796, 0.47191, -0.526594, 0.526594, 0.47191, 1, 1.22564, 1, 0.866667, 1, -0.261122, 28.8471, 6.796, 0.469047, -0.529146, 0.529146, 0.469046, 1, 1.22564, 1, 1.66667, 1, -0.261122, 28.8471, 6.796, 0.469047, -0.529146, 0.529146, 0.469046, 1, 1.22564, 1, 1.73333, 1, -0.261122, 28.8471, 6.796, 0.477795, -0.52126, 0.52126, 0.477795, 1, 1.22564, 1, 1.8, 1, -0.261122, 28.8471, 6.796, 0.499272, -0.500727, 0.500727, 0.499272, 1, 1.22564, 1, 1.86667, 1, -0.261122, 28.8471, 6.796, 0.530554, -0.467453, 0.467453, 0.530554, 1, 1.22564, 1, 2, 1, -0.261122, 28.8471, 6.796, 0.603599, -0.368333, 0.368333, 0.603598, 1, 1.22564, 1, 2.06667, 1, -0.261122, 28.8471, 6.796, 0.637311, -0.306324, 0.306324, 0.637311, 1, 1.22564, 1, 2.13333, 1, -0.261122, 28.8471, 6.796, 0.664919, -0.240589, 0.240589, 0.664919, 1, 1.22564, 1, 2.26667, 1, -0.261122, 28.8471, 6.796, 0.6978, -0.114349, 0.114349, 0.6978, 1, 1.22564, 1, 2.33333, 1, -0.261122, 28.8471, 6.796, 0.704375, -0.0620997, 0.0620997, 0.704375, 1, 1.22564, 1, 2.4, 1, -0.261122, 28.8471, 6.796, 0.70668, -0.0245681, 0.0245681, 0.70668, 1, 1.22564, 1, 2.46667, 1, -0.261122, 28.8471, 6.796, 0.707098, -0.00346768, 0.00346768, 0.707098, 1, 1.22564, 1, 2.5, 1, -0.261122, 28.8471, 6.796, 0.707107, 0, 0, 0.707107, 1, 1.22564, 1 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 17.7517, 12.8256, 7.12086 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Spatial" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 10.304, 18.9643, 55.785 )
+script = ExtResource( 4 )
+graphics = NodePath("ghostman")
+Cam = NodePath("Camera")
+Door1 = NodePath("../doormaker2/AnimationPlayer")
+anim_ghost = NodePath("ghostman/AnimationPlayer")
+
+[node name="Camera" parent="Spatial/Spatial" index="0"]
+current = true
+
+[node name="ghostman" parent="Spatial" index="2"]
+transform = Transform( 1.26879, 0, 0.00987669, 0, 1.26883, 0, -0.00987669, 0, 1.26879, 0, 0, 0 )
+
+[node name="AnimationPlayer" parent="Spatial/ghostman" index="1"]
+anims/RESET = SubResource( 12 )
+anims/fade = SubResource( 13 )
+anims/fadebk = SubResource( 14 )
+anims/wave = SubResource( 3 )
+script = ExtResource( 3 )
+ghost = NodePath("../..")
+
+[node name="Camera" type="Camera" parent="Spatial"]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.883667, 0.0929999, 11.7602 )
+projection = 1
+current = true
+size = 200.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.19119, 26.9241, 35.3459 )
+omni_range = 16.106
+
+[node name="OmniLight2" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.19119, 26.9241, 0 )
+omni_range = 16.106
+
+[node name="OmniLight3" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.19119, 27.0517, -34.0698 )
+omni_range = 16.106
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.581683, -0.679219, 0.447556, 0.813416, 0.485717, -0.320053, 0, 0.550218, 0.835021, 0, 28.9592, 0 )
+light_color = Color( 0.74902, 0.737255, 0.933333, 1 )
+light_energy = 0.506
+light_indirect_energy = 0.809
+light_specular = 13.564
+
+[node name="doormaker" parent="." instance=ExtResource( 5 )]
+
+[node name="uploads_files_715338_basic_door007" parent="doormaker" index="0"]
+transform = Transform( 1, 0, 0, 0, -1.46107e-07, -1, 0, 1.22564, -1.19209e-07, -0.261122, 28.8471, 6.796 )
+material/1 = SubResource( 4 )
+
+[node name="AnimationPlayer" parent="doormaker" index="3"]
+anims/door1 = SubResource( 10 )
+
+[node name="doormaker2" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 33 )
+
+[node name="uploads_files_715338_basic_door007" parent="doormaker2" index="0"]
+transform = Transform( 1, 0, 0, 0, 0, -1, 0, 1.22564, 0, -0.261122, 28.8471, 6.796 )
+material/1 = SubResource( 5 )
+
+[node name="AnimationPlayer" parent="doormaker2" index="3"]
+anims/close = SubResource( 11 )
+anims/open = SubResource( 6 )
+blend_times = [ "open", "close", 1.0, "open", "open", 1.0 ]
+
+[node name="doormaker3" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -33 )
+
+[node name="uploads_files_715338_basic_door007" parent="doormaker3" index="0"]
+transform = Transform( 1, 0, 0, 0, 0, -1, 0, 1.22564, 0, -0.261122, 28.8471, 6.796 )
+material/1 = SubResource( 7 )
+
+[node name="AnimationPlayer" parent="doormaker3" index="3"]
+anims/door3 = SubResource( 8 )
+
+[node name="ward_one" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005, 0 )
+
+[node name="door1" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32.572 )
+
+[node name="CollisionShape" type="CollisionShape" parent="door1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.58738, 17.0078, 0 )
+shape = SubResource( 9 )
+
+[connection signal="animation_finished" from="Spatial/ghostman/AnimationPlayer" to="Spatial/ghostman/AnimationPlayer" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="body_entered" from="door1" to="Spatial" method="_on_door1_body_entered"]
+[connection signal="mouse_entered" from="door1" to="Spatial" method="_on_door1_mouse_entered"]
+[connection signal="mouse_exited" from="door1" to="Spatial" method="_on_door1_mouse_exited"]
+
+[editable path="Spatial"]
+[editable path="Spatial/ghostman"]
+[editable path="doormaker"]
+[editable path="doormaker2"]
+[editable path="doormaker3"]
